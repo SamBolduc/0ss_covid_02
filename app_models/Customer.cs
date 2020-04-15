@@ -87,7 +87,7 @@ namespace app_models
 
         public Customer()
         {
-            PicturePath = "images/user.png";
+            PicturePath = "images/user.png"; 
         }
 
         public ObservableCollection<ContactInfo> ContactInfos { get; set; }
