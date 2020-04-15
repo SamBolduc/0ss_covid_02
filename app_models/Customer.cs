@@ -17,7 +17,7 @@ namespace app_models
         private string picturePath;
         private string contactInfo;
         public ObservableCollection<Invoice> Invoices { get; set; }
-
+        public ObservableCollection<ContactInfo> ContactInfos { get; set; }
         #region Property definitions
         public string Name
         {

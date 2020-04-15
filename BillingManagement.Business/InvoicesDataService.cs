@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BillingManagement.Business
 {
-    class InvoicesDataService : IDataService<Invoice>
+    public class InvoicesDataService : IDataService<Invoice>
     {
 
         private CustomersDataService _customers = new CustomersDataService();
