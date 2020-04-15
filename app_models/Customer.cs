@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BillingManagement.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -15,6 +16,7 @@ namespace app_models
         private string postalCode;
         private string picturePath;
         private string contactInfo;
+        public ObservableCollection<Invoice> Invoices { get; set; }
 
         #region Property definitions
         public string Name

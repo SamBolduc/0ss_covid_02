@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BillingManagement.Models
 {
-    class Invoice : INotifyPropertyChanged
+    public class Invoice : INotifyPropertyChanged
     {
         private static int _id;
 
