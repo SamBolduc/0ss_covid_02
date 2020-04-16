@@ -42,6 +42,10 @@
                     <MenuItem Header="Fonction 2"/>
                     <MenuItem Header="Fonction 3"/>
                 </MenuItem>
+                <MenuItem Header="Enregistrement">
+                    <MenuItem Header="Clients" Command="{Binding ChangeViewCommand}" CommandParameter="customers"/>
+                    <MenuItem Header="Factures" Command="{Binding ChangeViewCommand}" CommandParameter="invoices"/>
+                </MenuItem>
             </Menu>
         </StackPanel>
         <ToolBar DockPanel.Dock="Top">

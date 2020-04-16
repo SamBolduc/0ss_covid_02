@@ -48,6 +48,8 @@ namespace BillingManagement.Models
             this.Customer = customer;
         }
 
+        public string Info => $"{CreationDateTime} : {Total}";
+
         public double FedTax => SubTotal * 1.05;
         public double ProvTax => SubTotal * 1.0975;
         public double Total => SubTotal + FedTax + ProvTax;

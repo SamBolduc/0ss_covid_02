@@ -21,7 +21,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -41,13 +41,13 @@
         <TextBlock Grid.Row="5" Grid.Column="1" Text="TVQ:"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Text="Total:"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding SelectedInvoice.Id}"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding SelectedInvoice.CreationDate}"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding SelectedInvoice.Customer.Info}"/>
-        <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding SelectedInvoice.SubTotal}"/>
-        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding SelectedInvoice.FedTax}"/>
-        <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding SelectedInvoice.ProvTax}"/>
-        <TextBlock Grid.Row="6" Grid.Column="2" Text="{Binding SelectedInvoice.Total}"/>
+        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding SelectedInvoice.InvoiceId, Mode=OneWay}"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding SelectedInvoice.CreationDateTime, Mode=OneWay}"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding SelectedInvoice.Customer.Info, Mode=OneWay}"/>
+        <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding SelectedInvoice.SubTotal, Mode=OneWay}"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding SelectedInvoice.FedTax, Mode=OneWay}"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding SelectedInvoice.ProvTax, Mode=OneWay}"/>
+        <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding SelectedInvoice.Total, Mode=OneWay}"/>
         
     </Grid>
 </UserControl>

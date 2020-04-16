@@ -78,23 +78,20 @@
                             Orientation="Horizontal" Margin="3">
                     <TextBlock Text="Contact :" Width="75"/>
 
-                <ListView Grid.Row="1" ItemsSource="{Binding SelectedCustomer.ContactInfos}" SelectedItem="{Binding SelectedCustomer}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Info}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                    <TextBlock MinWidth="125" Text="{Binding  SelectedCustomer.ContactInfo}"/>
-
-
+                    <ListView Grid.Row="1" MinWidth="150" MaxWidth="150" ItemsSource="{Binding SelectedCustomer.ContactInfos}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Info}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
-                <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">
+                <StackPanel Grid.Row="5" Grid.Column="2" Margin="6">
+                    <Image Margin="6" MaxWidth="100" MaxHeight="100"
+                               Source="{Binding SelectedCustomer.PicturePath}"
+                               />
                     <Button Content="Supprimer client"/>
                 </StackPanel>
-                <Image Margin="6" Grid.Row="7"
-                       Source="{Binding SelectedCustomer.PicturePath}"
-                       Stretch="Uniform"/>
             </Grid>
         </Grid>
 </UserControl>
