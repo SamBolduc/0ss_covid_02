@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace BillingManagement.UI.Views
 {
     /// <summary>
-    /// Interaction logic for CustomerView.xaml
+    /// Interaction logic for InvoiceView.xaml
     /// </summary>
-    public partial class CustomerView : UserControl
+    public partial class InvoiceView : UserControl
     {
-        public CustomerView()
+        public InvoiceView()
         {
             InitializeComponent();
         }

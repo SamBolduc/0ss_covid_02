@@ -25,7 +25,7 @@ namespace BillingManagement.UI.ViewModels
             }
         }
 
-        public Invoice SelectedCustomer
+        public Invoice SelectedInvoice
         {
             get => _selectedInvoice;
             set

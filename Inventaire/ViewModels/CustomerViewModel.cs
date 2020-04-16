@@ -1,33 +1,37 @@
 ﻿using app_models;
 using BillingManagement.Business;
+using BillingManagement.Models;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Text;
 
 namespace BillingManagement.UI.ViewModels
 {
-    public class CustomerViewModel : BaseViewModel
+    class CustomerViewModel : BaseViewModel
     {
         readonly CustomersDataService customersDataService = new CustomersDataService();
 
-        private ObservableCollection<Customer> customers;
-        private Customer selectedCustomer;
+        private ObservableCollection<Customer> _customers;
+        private Customer _selectedCustomer;
 
         public ObservableCollection<Customer> Customers
         {
-            get => customers;
+            get => _customers;
             private set
             {
-                customers = value;
+                _customers = value;
                 OnPropertyChanged();
             }
         }
 
         public Customer SelectedCustomer
         {
-            get => selectedCustomer;
+            get => _selectedCustomer;
             set
             {
-                selectedCustomer = value;
+                _selectedCustomer = value;
                 OnPropertyChanged();
             }
         }
@@ -42,6 +46,5 @@ namespace BillingManagement.UI.ViewModels
             Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
             Debug.WriteLine(Customers.Count);
         }
-
     }
 }

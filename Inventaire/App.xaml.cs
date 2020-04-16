@@ -1,4 +1,5 @@
 ﻿using BillingManagement.UI.ViewModels;
+using BillingManagement.UI.Views;
 using System.Windows;
 
 namespace Inventaire
@@ -8,14 +9,11 @@ namespace Inventaire
     /// </summary>
     public partial class App : Application
     {
-        CustomerView _window;
+        MainView _window;
 
         public App()
         {
-            CustomerViewModel vm = new CustomerViewModel();
-
-            _window = new CustomerView(vm);
-
+            _window = new MainView();
             _window.Show();
         }
     }
