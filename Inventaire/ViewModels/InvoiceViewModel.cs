@@ -31,6 +31,7 @@ namespace BillingManagement.UI.ViewModels
             set
             {
                 _selectedInvoice = value;
+                StatusBar = $"Facture sélectionnée: " + (SelectedInvoice != null ? SelectedInvoice.Info : "");
                 OnPropertyChanged();
             }
         }

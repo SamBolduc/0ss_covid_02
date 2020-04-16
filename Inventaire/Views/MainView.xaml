@@ -58,8 +58,7 @@
             </Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom" Height="25">
-            <TextBlock Text="Client sélectionné : " />
-            <TextBlock Text="{Binding SelectedCustomer.Info}" />
+            <TextBlock Text="{Binding ContentModel.StatusBar}" />
         </StatusBar>
 
         <ContentPresenter Content="{Binding ContentModel}"/>

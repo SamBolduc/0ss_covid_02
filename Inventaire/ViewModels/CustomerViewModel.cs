@@ -32,6 +32,7 @@ namespace BillingManagement.UI.ViewModels
             set
             {
                 _selectedCustomer = value;
+                StatusBar = $"Client sélectionné: " + (SelectedCustomer != null ? SelectedCustomer.Info : "");
                 OnPropertyChanged();
             }
         }
