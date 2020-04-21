@@ -26,6 +26,7 @@ namespace BillingManagement.UI.ViewModels
 		public RelayCommand NewCustomerCommand { get; private set; }
 		public RelayCommand DisplayInvoiceCommand { get; private set; }
 		public RelayCommand DisplayCustomerCommand { get; private set; }
+		public RelayCommand NewInvoiceCommand { get; private set; }
 
 		public MainViewModel()
 		{
@@ -33,6 +34,7 @@ namespace BillingManagement.UI.ViewModels
 			NewCustomerCommand = new RelayCommand(NewCustomer);
 			DisplayInvoiceCommand = new RelayCommand(DisplayInvoice);
 			DisplayCustomerCommand = new RelayCommand(DisplayCustomer);
+			NewInvoiceCommand = new RelayCommand(NewInvoice, CanCreateInvoice);
 
 			customerViewModel = new CustomerViewModel();
 			invoiceViewModel = new InvoiceViewModel(customerViewModel.Customers);
@@ -73,5 +75,15 @@ namespace BillingManagement.UI.ViewModels
 			customerViewModel.SelectedCustomer = c as Customer;
 			VM = customerViewModel;
 		}
+
+		private void NewInvoice(object c)
+		{
+			var customer = c as Customer;
+			var invoice = new Invoice(customer);
+			customer.Invoices.Add(invoice);
+			DisplayInvoice(invoice);
+		}
+
+		private bool CanCreateInvoice(object c) => c != null;
 	}
 }
