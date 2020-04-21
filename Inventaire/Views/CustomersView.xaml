@@ -87,16 +87,32 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-
-            </StackPanel>
-
-
-            <StackPanel Grid.Row="7" Grid.Column="2" Margin="6">
-                <Button Content="Supprimer client" Command="{Binding DeleteCustomerCommand}" CommandParameter="{Binding SelectedCustomer}"/>
-            </StackPanel>
-            <Image Margin="6" Grid.Row="8"
+                <Image Margin="6" Grid.Row="8"
                        Source="{Binding SelectedCustomer.PicturePath}"
                        Stretch="Uniform"/>
+            </StackPanel>
+
+            <StackPanel Margin="12" Grid.Row="6" Grid.ColumnSpan="2">
+                <Button Width="120" HorizontalAlignment="Left" Content="Nouvelle facture"/>
+                <DataGrid ItemsSource="{Binding SelectedCustomer.Invoices}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Facture" Binding="{Binding CreationDateTime}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                        <DataGridTemplateColumn Header="Action">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Voir"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+           
+            <StackPanel Grid.Row="7" Grid.Column="1" Margin="6">
+                <Button Content="Supprimer client" Command="{Binding DeleteCustomerCommand}" CommandParameter="{Binding SelectedCustomer}"/>
+            </StackPanel>
+           
         </Grid>
     </Grid>
 </UserControl>
