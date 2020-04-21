@@ -97,7 +97,7 @@
                 <DataGrid ItemsSource="{Binding SelectedCustomer.Invoices}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Facture" Binding="{Binding CreationDateTime}"/>
-                        <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat={}{0:C}}"/>
                         <DataGridTemplateColumn Header="Action">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
