@@ -34,12 +34,12 @@ namespace BillingManagement.UI.ViewModels
         }
 
 
-        public DeleteCustomerCommand DeleteCustomerCommand { get; set; }
+        public RelayCommand DeleteCustomerCommand { get; private set; }
 
 
         public CustomerViewModel()
         {
-            DeleteCustomerCommand = new DeleteCustomerCommand(DeleteCustomer);
+            DeleteCustomerCommand = new RelayCommand(DeleteCustomer, CanDeleteCustomer);
             InitValues();
         }
 
@@ -49,15 +49,25 @@ namespace BillingManagement.UI.ViewModels
             Debug.WriteLine(Customers.Count);
         }
 
-        private void DeleteCustomer(Customer c)
+        private void DeleteCustomer(object c)
         {
-            var currentIndex = Customers.IndexOf(c);
+            var customer = c as Customer;
+            var currentIndex = Customers.IndexOf(customer);
 
             if (currentIndex > 0) currentIndex--;
 
             SelectedCustomer = Customers[currentIndex];
 
-            Customers.Remove(c);
+            Customers.Remove(customer);
+        }
+
+        private bool CanDeleteCustomer(object c)
+        {
+            if (c == null) return false;
+
+            var customer = c as Customer;
+
+            return customer.Invoices.Count == 0;
         }
 
     }
