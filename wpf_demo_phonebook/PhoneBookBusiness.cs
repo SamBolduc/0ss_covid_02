@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Text;
 
@@ -58,7 +59,22 @@ namespace wpf_demo_phonebook
             cm.Phone = row["Phone"].ToString();
             cm.Mobile = row["Mobile"].ToString();
 
+            Console.WriteLine(cm.ContactID);
             return cm;
+        }
+
+        public static ObservableCollection<ContactModel> GetAllContacts()
+        {
+            ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>();
+            DataTable dataTable = dao.getAll();
+
+            if(dataTable != null)
+            {
+                foreach (DataRow row in dataTable.Rows)
+                    contacts.Add(RowToContactModel(row));
+            }
+
+            return contacts;
         }
     }
 }
