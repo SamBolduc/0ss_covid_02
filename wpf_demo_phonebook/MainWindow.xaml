@@ -9,7 +9,7 @@
         DataContext="{Binding RelativeSource={RelativeSource self}}"
         >
     <DockPanel>
-
+ 
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
