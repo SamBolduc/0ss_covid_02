@@ -47,7 +47,7 @@ namespace wpf_demo_phonebook
 
         private static ContactModel RowToContactModel(DataRow row)
         {
-            ContactModel cm = new ContactModel();
+            ContactModel cm = new ContactModel(false);
 
             cm.ContactID = Convert.ToInt32(row["ContactID"]);
             cm.FirstName = row["FirstName"].ToString();
@@ -81,6 +81,11 @@ namespace wpf_demo_phonebook
         public static int UpdateContact(ContactModel contact)
         {
             return dao.UpdateContact(contact);
+        }
+
+        public static int InsertContact(ContactModel contact)
+        {
+            return dao.InsertContact(contact);
         }
     }
 }

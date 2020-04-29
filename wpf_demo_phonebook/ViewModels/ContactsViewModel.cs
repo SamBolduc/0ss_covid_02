@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using wpf_demo_phonebook.ViewModels.Commands;
@@ -60,19 +61,35 @@ namespace wpf_demo_phonebook.ViewModels
         {
             if (c is null) return;
 
-            PhoneBookBusiness.UpdateContact(c as ContactModel);
+            ContactModel contact = c as ContactModel;
+
+            if(!contact.New)
+            {
+                PhoneBookBusiness.UpdateContact(contact);
+                return;
+            }
+
+            contact.New = false;
+            if (PhoneBookBusiness.InsertContact(contact) >= 0)
+            {
+                Contacts.Add(contact);
+                OnPropertyChanged(nameof(Contacts));
+            }
         }
 
         private void DeleteContact(object c)
         {
             if (c is null) return;
 
+            ContactModel contact = c as ContactModel;
+
+
             MessageBoxResult confirmation = MessageBox.Show("Es-tu certain de vouloir supprimer ce contact?", "Confirmation", MessageBoxButton.YesNo);
             if (confirmation == MessageBoxResult.Yes)
             {
                 if (PhoneBookBusiness.DeleteContact(c as ContactModel) > 0)
                 {
-                    Contacts.Remove(SelectedContact);
+                    Contacts.Remove(contact);
                     SelectedContact = null;
                     OnPropertyChanged("Contacts");
                 }

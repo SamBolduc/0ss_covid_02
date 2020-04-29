@@ -34,8 +34,20 @@ namespace wpf_demo_phonebook
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Mobile { get; set; }
-
         public string Info => $"{LastName}, {FirstName}";
+
+        public bool New { get; set; } = false;
+
+        public ContactModel(bool isNew)
+        {
+            ContactID = new Random().Next(1, 500000);
+            FirstName = "Undefined";
+            LastName = "Undefined";
+            Email = "Undefined";
+            Phone = "Undefined";
+            Mobile = "Undefined";
+            New = isNew;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)

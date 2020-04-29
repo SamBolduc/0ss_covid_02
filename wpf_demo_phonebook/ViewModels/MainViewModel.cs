@@ -23,13 +23,22 @@ namespace wpf_demo_phonebook.ViewModels
         ContactsViewModel contactsViewModel;
 
         public RelayCommand SearchContactCommand { get; set; }
+        public RelayCommand NewContactCommand { get; set; }
 
         public MainViewModel()
         {
             SearchContactCommand = new RelayCommand(SearchContact);
+            NewContactCommand = new RelayCommand(NewContact);
 
             contactsViewModel = new ContactsViewModel();
             VM = contactsViewModel;
+        }
+        private void NewContact(object parameter)
+        {
+            if (contactsViewModel.SelectedContact != null && contactsViewModel.SelectedContact.New) return;
+
+            ContactModel contact = new ContactModel(true);
+            contactsViewModel.SelectedContact = contact;
         }
 
         private void SearchContact(object parameter)
