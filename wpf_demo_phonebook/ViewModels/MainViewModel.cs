@@ -68,7 +68,9 @@ namespace wpf_demo_phonebook.ViewModels
                     SelectedContact = PhoneBookBusiness.GetContactByID(output);
                     break;
                 case "name":
-                    SelectedContact = PhoneBookBusiness.GetContactByName(input);
+                    if (input.Length == 0) Contacts = PhoneBookBusiness.GetAllContacts();
+                    else Contacts = PhoneBookBusiness.GetContactsByName(input);
+                    SelectedContact = Contacts.Count > 0 ? Contacts[0] : null;
                     break;
                 default:
                     MessageBox.Show("Unkonwn search method");
