@@ -19,7 +19,6 @@ namespace wpf_demo_phonebook
         public App()
         {
             _wnd = new MainWindow();
-            _wnd.DataContext = new MainViewModel();
             _wnd.Show();
         }
     }

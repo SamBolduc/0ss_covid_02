@@ -56,7 +56,6 @@ namespace wpf_demo_phonebook
             cm.Phone = row["Phone"].ToString();
             cm.Mobile = row["Mobile"].ToString();
 
-            Console.WriteLine(cm.ContactID);
             return cm;
         }
 
@@ -72,6 +71,16 @@ namespace wpf_demo_phonebook
             }
 
             return contacts;
+        }
+
+        public static int DeleteContact(ContactModel contact)
+        {
+            return dao.DeleteId(contact.ContactID);
+        }
+
+        public static int UpdateContact(ContactModel contact)
+        {
+            return dao.UpdateContact(contact);
         }
     }
 }

@@ -61,5 +61,40 @@ namespace wpf_demo_phonebook
             string _query = $"SELECT * FROM [Contacts]";
             return conn.ExecuteSelectQuery(_query, null);
         }
+
+        public int DeleteId(int id)
+        {
+            string _query = $"DELETE FROM [Contacts] WHERE ContactID = @_id";
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@_id", SqlDbType.Int);
+            parameters[0].Value = id;
+
+            return conn.ExecutUpdateQuery(_query, parameters);
+        }
+
+        public int UpdateContact(ContactModel contact)
+        {
+            string _query = $"UPDATE [Contacts] SET ContactID = @_contactID, LastName = @_lastName, FirstName = @_firstName, Email = @_email, Phone = @_phone, Mobile = @_mobile WHERE ContactID = @_contactID";
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = new SqlParameter("@_contactID", SqlDbType.Int);
+            parameters[0].Value = contact.ContactID;
+
+            parameters[1] = new SqlParameter("@_lastName", SqlDbType.VarChar);
+            parameters[1].Value = contact.LastName;
+
+            parameters[2] = new SqlParameter("@_firstName", SqlDbType.VarChar);
+            parameters[2].Value = contact.FirstName;
+
+            parameters[3] = new SqlParameter("@_email", SqlDbType.VarChar);
+            parameters[3].Value = contact.Email;
+
+            parameters[4] = new SqlParameter("@_phone", SqlDbType.VarChar);
+            parameters[4].Value = contact.Phone;
+
+            parameters[5] = new SqlParameter("@_mobile", SqlDbType.VarChar);
+            parameters[5].Value = contact.Mobile;
+
+            return conn.ExecutUpdateQuery(_query, parameters);
+        }
     }
 }

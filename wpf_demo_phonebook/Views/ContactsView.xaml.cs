@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,20 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wpf_demo_phonebook.ViewModels;
 
-namespace wpf_demo_phonebook
+namespace wpf_demo_phonebook.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ContactsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ContactsView : UserControl
     {
-        public MainWindow()
+        public ContactsView()
         {
             InitializeComponent();
-
-            DataContext = new MainViewModel();
         }
     }
 }
