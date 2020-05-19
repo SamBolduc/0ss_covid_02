@@ -25,7 +25,7 @@ namespace BillingManagement.Business
 
             foreach (var customer in _customers)
             {
-                int nbInvoices = rnd.Next(10);
+                int nbInvoices = rnd.Next(0,10);
 
                 for (int i = 0; i < nbInvoices; i++)
                 {

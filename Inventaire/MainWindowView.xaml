@@ -7,8 +7,8 @@
         xmlns:vm="clr-namespace:BillingManagement.UI.ViewModels"
         xmlns:views="clr-namespace:BillingManagement.UI.Views"
         mc:Ignorable="d"
-        Title="Gestion de clients" Width="800" Height="500"
-        MinHeight="600" MinWidth="640">
+        Title="Gestion de clients" Width="1280" Height="968"
+        MinHeight="768" MinWidth="800">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
             <views:CustomersView DataContext="{Binding}"/>
@@ -39,7 +39,7 @@
                     <MenuItem Header="Factures" Command="{Binding ChangeViewCommand}" CommandParameter="invoices"/>
                 </MenuItem>
                 <MenuItem Header="Enregistrement">
-                    <MenuItem Header="Nouveau" Command="{Binding NewItemCommand}"/>
+                    <MenuItem Header="Nouveau" Command="{Binding AddNewItemCommand}" />
                 </MenuItem>
             </Menu>
         </StackPanel>
@@ -48,9 +48,13 @@
                 <Image Source="/images/new_user.png" Height="32" Width="32" Stretch="Uniform"/>
             </Button>
             <Separator/>
-            <Button Click="Exit_Click">
-                <Image Source="/images/exit.png" Height="32" Width="32" Stretch="Uniform"/>
-            </Button>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Rechercher : " VerticalAlignment="Center"/>
+                <TextBox Text="{Binding SearchCriteria}" Width="150" Height="30" VerticalContentAlignment="Center"/>
+                <Button Content="Recherche" Command="{Binding SearchCommand}"/>
+            </StackPanel>
+
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom" Height="25">
             <TextBlock Text="Barre de statut " />

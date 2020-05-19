@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Dictionaries\**" />
+    <EmbeddedResource Remove="Dictionaries\**" />
+    <None Remove="Dictionaries\**" />
+    <Page Remove="Dictionaries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="images\exit.png" />
     <None Remove="images\new_user.png" />
     <None Remove="images\user.png" />
@@ -27,10 +34,6 @@
     <Resource Include="images\user.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dictionaries\" />
   </ItemGroup>
 
 </Project>
