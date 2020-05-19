@@ -27,7 +27,7 @@
                     <Separator/>
                     <MenuItem Header="_Nouveau client"/>
                     <Separator/>
-                    <MenuItem Header="_Quitter" Click="Exit_Click"/>
+                    <MenuItem Header="_Quitter" Command="{Binding CloseCommand}"/>
                 </MenuItem>
                 <MenuItem Header="_Édition">
                     <MenuItem Header="Couper..."/>
@@ -44,7 +44,7 @@
             </Menu>
         </StackPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button >
+            <Button Command="{Binding AddNewItemCommand}">
                 <Image Source="/images/new_user.png" Height="32" Width="32" Stretch="Uniform"/>
             </Button>
             <Separator/>

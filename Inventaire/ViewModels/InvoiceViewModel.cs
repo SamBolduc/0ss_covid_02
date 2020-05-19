@@ -13,10 +13,10 @@ namespace BillingManagement.UI.ViewModels
 		private Invoice selectedInvoice;
 		private ObservableCollection<Invoice> invoices;
 
-		public InvoiceViewModel(IEnumerable<Customer> customerData)
+		public InvoiceViewModel(ObservableCollection<Invoice> invoices)
 		{
-			InvoicesDataService ids = new InvoicesDataService(customerData);
-			Invoices = new ObservableCollection<Invoice>(ids.GetAll().ToList());
+			this.Invoices = invoices;
+			this.selectedInvoice = this.Invoices.First();
 		}
 
 		public Invoice SelectedInvoice

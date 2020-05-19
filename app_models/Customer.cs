@@ -7,6 +7,17 @@ namespace BillingManagement.Models
 {
     public class Customer : INotifyPropertyChanged
     {
+        private int _id;
+        public int ID
+        {
+            get => _id;
+            private set
+            {
+                _id = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string name;
         private string lastName;
         private string address;

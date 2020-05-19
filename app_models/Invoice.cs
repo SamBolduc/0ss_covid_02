@@ -9,7 +9,6 @@ namespace BillingManagement.Models
 {
     public class Invoice : INotifyPropertyChanged
     {
-        static int nextId;
 
         public int InvoiceId { get; private set; }
 
@@ -55,17 +54,11 @@ namespace BillingManagement.Models
 
         public Invoice()
         {
-            // Incremente le ID
-            InvoiceId = Interlocked.Increment(ref nextId);
-
             CreationDateTime = DateTime.Now;
         }
 
         public Invoice(Customer customer)
         {
-            // Incremente le ID
-            InvoiceId = Interlocked.Increment(ref nextId);
-
             CreationDateTime = DateTime.Now;
             Customer = customer;
         }
